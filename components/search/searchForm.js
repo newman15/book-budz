@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SearchResults from "./searchResults";
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/searchStyles/Form.module.css'
 
 export default function SearchForm(){
 
@@ -23,24 +23,23 @@ export default function SearchForm(){
                 getSearchResults();
             }}>
                 <label>Author
-                    <input type="radio" id="searchAuthor" name="searchType" value="searchAuthor" />
+                    <input className={styles.input} type="radio" id="searchAuthor" name="searchType" value="searchAuthor" required/>
                 </label>
 
                 <label>Title
-                    <input type="radio" id="searchTitle" name="searchType" value="searchTitle" />
+                    <input className={styles.input} type="radio" id="searchTitle" name="searchType" value="searchTitle" required/>
                 </label>
 
                 <label>Title and Author
-                    <input type="radio" id="searchTitleAndAuthor" name="searchType" value="searchTitleAndAuthor" disabled/>
+                    <input className={styles.input} type="radio" id="searchTitleAndAuthor" name="searchType" value="searchTitleAndAuthor" disabled/>
                 </label>
 
                 <label>ISBN
-                    <input type="radio" id="searchISBN" name="searchType" value="searchISBN" />
+                    <input className={styles.input} type="radio" id="searchISBN" name="searchType" value="searchISBN" required/>
                 </label><br/>
 
                 <label>
-                    Search:
-                    <input type="text" id="searchValue" />
+                    <input className={styles.input} type="text" className={styles.textInput} id="searchValue" placeholder="Search..." required/>
                 </label>
 
                 <input type="submit" value="Search" />

@@ -1,34 +1,39 @@
 import useSWR from 'swr';
 import Image from 'next/dist/client/image';
-import styles from '../../styles/Card.module.css';
-import noImage from '../../public/unavailable_img.jpeg'
+import styles from '../../styles/searchStyles/Card.module.css';
+import noImage from '../../public/unavailable_img.jpeg';
+import liked from '../../public/liked.svg';
+import notLiked from '../../public/not_liked.svg';
 
 export default function SearchResults({searchType, searchValue}) {
 
+    // Array to store the JSX to be sent to the DOM
     let returnJSX = [];
 
-    // Itinitialize fetcher
+    // Itinitialize fetcher for api calls to backend
     const fetcher = url => fetch(url).then(r => r.json());
 
     // Use the Next.js 'useSWR' hook to touch the backend API. https://swr.vercel.app/
-    // revalidate... set to false to prevent duplicate calls to API (not necessary to have)
+    // revalidate... set to false to prevent duplicate calls to API when no event has happened.
     const {data, error} = useSWR(`/api/search/${searchType}/${searchValue}`, fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false
     });
 
+    // Display loading message while waiting for data
     if(!data) {
-        console.log("loading...");
         return <div>loading...</div>
     }
+
+    // If error display an error message
     if(error){
         return <div>Failed To Load!</div>
     }
-    if(data){
-        console.log("Loading COMPLETE");
-        console.log(data);
 
+    // Return data if available
+    // If image is returned display it, else display default image
+    if(data){
         for (let i = 0; i < data.length; i++){
             returnJSX.push(
                 <div className={styles.card} key={"card" + i}>
@@ -49,12 +54,73 @@ export default function SearchResults({searchType, searchValue}) {
                             layout="responsive"
                         />
                     }
+
                     <div className={styles.text} key={"cardData" + i}>
+
                         <h2>{data[i].title}</h2>
+
                         <p className="text"><b>Author:</b> {data[i].author}</p>
-                        <p className="text"><b>Description:</b>{data[i].description}</p>
-                        <p className="text"><b>Date Published:</b> {data[i].date}</p>
-                        <p className="text"><b>ISBN:</b> {data[i].isbn}</p>
+
+                        {/* Modal */}
+                        <button className={styles.modalBtn}
+                            onClick={() => {
+                                document.getElementById('modal' + i).style.display = 'block';
+                            }}>Show Description +/-
+                        </button>
+
+                        <div className={styles.modal} id={'modal' + i} >
+
+                            <div className={styles.content} >
+                                
+                                <span className={styles.close} 
+                                    onClick={() => {
+                                        document.getElementById('modal' + i).style.display = 'none';
+                                    }}>&times;
+                                </span>
+
+                                <p className={styles.descriptionContent}>{data[i].description}</p>
+
+                            </div>
+
+                        </div>
+                        {/* End Modal */}
+                        
+                        <p><b>Published:</b> {data[i].date}</p>
+
+                        <p><b>ISBN:</b> {data[i].isbn}</p>
+
+                        <div className={styles.imgNotLiked} id={'imgNotLiked' + i} 
+                            onClick={() => {
+                                document.getElementById('imgLiked' + i).style.display = 'block';
+                                document.getElementById('imgNotLiked' + i).style.display = 'none';
+                            }}>
+
+                            <Image 
+                                src={notLiked} 
+                                alt={"not liked"}
+                                width={50}
+                                height={50}
+                                layout="intrinsic"
+                            />
+
+                        </div>
+
+                        <div className={styles.imgLiked} id={'imgLiked' + i} 
+                            onClick={() => {
+                                document.getElementById('imgLiked' + i).style.display = 'none';
+                                document.getElementById('imgNotLiked' + i).style.display = 'block';
+                            }}>
+
+                            <Image 
+                                src={liked} 
+                                alt={"liked img"}
+                                width={50}
+                                height={50}
+                                layout="intrinsic"
+                            />
+
+                        </div>
+
                     </div>
                 </div>
             )
@@ -65,9 +131,9 @@ export default function SearchResults({searchType, searchValue}) {
         <div>
             <h3>Search Type Is: <i>{searchType}</i>, Search Value Is: <i>{searchValue}</i></h3>
 
-            <ul>
+            <div className={styles.cardContainer}>
                 {returnJSX}
-            </ul>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,63 @@
+.heartWhite {
+    background-color: white;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  .heartWhite:before,
+  .heartWhite:after {
+    content: "";
+    background-color: white;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+  }
+  
+  .heartWhite:before {
+    top: -15px;
+    left: 0;
+  }
+  
+  .heartWhite:after {
+    left: 15px;
+    top: 0;
+  }
+
+  .heartRed {
+    background-color: red;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  .heartRed:before,
+  .heartRed:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+  }
+  
+  .heartRed:before {
+    top: -15px;
+    left: 0;
+  }
+  
+  .heartRed:after {
+    left: 15px;
+    top: 0;
+  }

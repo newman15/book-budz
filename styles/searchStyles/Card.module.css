@@ -1,0 +1,96 @@
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    border: 1rem solid black;
+    border-radius: 12px;
+    transition: 0.3s;
+    margin: 2rem;
+    width: 300px;
+}
+  
+/* On mouse-over, add a deeper shadow */
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+.card:hover {
+    box-shadow: 0 8px 16px 8px rgba(0,0,0,1);
+}
+
+/* Add some padding inside the card container */
+.text {
+    margin: 1rem;
+}
+
+.text p{
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.modalBtn{
+    cursor: pointer;
+    border: 2px solid black; /* Green */
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    transition-duration: 0.4s;
+}
+
+.modalBtn:hover{
+    background-color: black; /* Green */
+    color: white;
+}
+
+/* Select all id that BEGIN WITH 'modal' */
+.modal[id^="modal"]{
+    display: none;
+}
+
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 6px solid black;
+    border-radius: 4px;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.descriptionContent{
+    text-align: left;
+}
+
+.imgNotLiked{
+    cursor: pointer;
+}
+
+.imgLiked{
+    display: none;
+    cursor: pointer;
+}

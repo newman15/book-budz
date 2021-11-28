@@ -6,6 +6,19 @@
   text-align: center;
 }
 
+.gradient{
+  background-color: cadetblue;
+  background-image: linear-gradient(white, lightBlue, grey);
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 800px;
+}
+
+
+
+
+
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;

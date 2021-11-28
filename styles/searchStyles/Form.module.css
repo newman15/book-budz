@@ -1,0 +1,14 @@
+.textInput{
+    background-color: floralwhite;
+    margin: 1rem;
+    text-align: center;
+    width: 300px;
+}
+
+.center{
+    text-align: center;
+}
+
+.input{
+    margin-right: 12px;
+}
