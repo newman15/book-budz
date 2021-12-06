@@ -3,9 +3,10 @@ const axios = require('axios');
 export default async function handler(req, res){
     let title = req.query.param[0];
     let author = req.query.param[1];
+    let apiKey = process.env.GOOGLE_BOOKS_KEY;
 
     let apiResponse = await 
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}+inauthor:${author}&key=AIzaSyAvoUBW4zDKpdNWYkZfdI6-qxV6B5Z886k`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}+inauthor:${author}&key=${apiKey}`)
         .then((response) => {
             let searchResults = [];
             console.log("\nTotal Number Of Books for title&author: " + response.data.items.length);
