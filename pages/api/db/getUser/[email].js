@@ -16,7 +16,7 @@ import {MongoClient} from "mongodb";
 
     try {
         await client.connect(); // connect to DB Cluster
-        const collection = client.db("development").collection("users"); // Create collection of db/document
+        const collection = client.db("development").collection("users"); // Specify DB Name & Doc Name
 
         const query = {email: email}; // The query parameter. Search based on email
         dbResults = await collection.findOne(query); // Store search results in dbResults
