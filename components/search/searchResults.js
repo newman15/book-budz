@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import Image from 'next/dist/client/image';
-import styles from '../../styles/searchStyles/Card.module.css';
+import styles from '../../styles/Card.module.css';
 import noImage from '../../public/unavailable_img.jpeg';
 import liked from '../../public/liked.svg';
 import notLiked from '../../public/not_liked.svg';
