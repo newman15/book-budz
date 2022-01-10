@@ -30,9 +30,9 @@ export default function SearchForm(){
                     <input className={styles.input} type="radio" id="searchTitle" name="searchType" value="searchTitle" required/>
                 </label>
 
-                <label>Title and Author
+                {/* <label>Title and Author
                     <input className={styles.input} type="radio" id="searchTitleAndAuthor" name="searchType" value="searchTitleAndAuthor" disabled/>
-                </label>
+                </label> */}
 
                 <label>ISBN
                     <input className={styles.input} type="radio" id="searchISBN" name="searchType" value="searchISBN" required/>
