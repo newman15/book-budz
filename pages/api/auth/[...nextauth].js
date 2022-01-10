@@ -48,10 +48,15 @@ pages: {
 // when an action is performed.
 // https://next-auth.js.org/configuration/callbacks
 callbacks: {
-// async signIn({ user, account, profile, email, credentials }) { return true },
-// async redirect({ url, baseUrl }) { return baseUrl },
-// async session({ session, token, user }) { return session },
-// async jwt({ token, user, account, profile, isNewUser }) { return token }
+    // Add the userId to the session object
+    async session({ session, user }) { 
+        session.userId = user.id;
+        return Promise.resolve(session); 
+    }
+
+    // async signIn({ user, account, profile, email, credentials }) { return true },
+    // async redirect({ url, baseUrl }) { return baseUrl },
+    // async jwt({ token, user, account, profile, isNewUser }) { return token },
 },
 
 // Events are useful for logging
