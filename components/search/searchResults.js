@@ -93,44 +93,46 @@ export default function SearchResults({searchType, searchValue}) {
 
                         <p><b>ISBN:</b> {data[i].isbn}</p>
 
-                        <div className={styles.imgNotLiked} id={'imgNotLiked' + i} 
-                            onClick={() => {
-                                // If book is not liked, switch liked icon to full heart
-                                document.getElementById('imgLiked' + i).style.display = 'block';
-                                document.getElementById('imgNotLiked' + i).style.display = 'none';
+                        {session && (
+                            <div className={styles.imgNotLiked} id={'imgNotLiked' + i} 
+                                onClick={() => {
+                                    // If book is not liked, switch liked icon to full heart
+                                    document.getElementById('imgLiked' + i).style.display = 'block';
+                                    document.getElementById('imgNotLiked' + i).style.display = 'none';
 
-                                // Store book data to be sent to API route
-                                let bookData = {
-                                    userId: session.userId,
-                                    title: data[i].title,
-                                    author: data[i].author,
-                                    date: data[i].date,
-                                    isbn: data[i].isbn,
-                                    description: data[i].description,
-                                    image: data[i].image
-                                }
-
-                                // Send the book data to the backend API to be saved
-                                fetch('/api/db/saveBook', 
-                                    {
-                                        method: 'POST',
-                                        headers: {
-                                            "Content-Type": "application/json",
-                                        },
-                                        body: JSON.stringify(bookData),
+                                    // Store book data to be sent to API route
+                                    let bookData = {
+                                        userId: session.userId,
+                                        title: data[i].title,
+                                        author: data[i].author,
+                                        date: data[i].date,
+                                        isbn: data[i].isbn,
+                                        description: data[i].description,
+                                        image: data[i].image
                                     }
-                                );
-                            }}>
 
-                            <Image 
-                                src={notLiked} 
-                                alt={"not liked"}
-                                width={50}
-                                height={50}
-                                layout="intrinsic"
-                            />
+                                    // Send the book data to the backend API to be saved
+                                    fetch('/api/db/saveBook', 
+                                        {
+                                            method: 'POST',
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                            },
+                                            body: JSON.stringify(bookData),
+                                        }
+                                    );
+                                }}>
 
-                        </div>
+                                <Image 
+                                    src={notLiked} 
+                                    alt={"not liked"}
+                                    width={50}
+                                    height={50}
+                                    layout="intrinsic"
+                                />
+
+                            </div>
+                        )}
 
                         <div className={styles.imgLiked} id={'imgLiked' + i} 
                             onClick={() => {
