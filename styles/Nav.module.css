@@ -1,6 +1,5 @@
 .container{
     display: flex;
-    /* justify-content: center; */
 }
 
 .topNav{
@@ -14,21 +13,72 @@
     color: black;
 }
 
+.mobileTopNav{
+    display: none;
+}
+
+.button{
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: black;
+    color: white;
+}
+
+.inlineListItem{
+    display: inline;
+    list-style: none;
+}
+
 .floatLeft{
     float: left;
     margin: 1rem;
+    padding-left: 1rem;
     text-align: center;
     color: white;
 }
 
 .floatRight{
+    display: inline;
     float: right;
     color: white;
     margin: 1rem;
     padding-right: 2rem;
 }
 
-.inlineListItem{
-    display: inline;
-    padding: 1rem;
+.menuBar{
+    display: none;
+    float: left;
+    margin: 1rem;
+    padding-left: 1rem;
+    text-align: center;
+    color: white;
+}
+
+.menuBarExpanded{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .menuBar{
+        display: block;
+    }
+    .topNav{
+        display: none;
+    }
+    .mobileTopNav{
+        display: block;
+        background-color: #333;
+        overflow: hidden;
+        font-size: 1.5rem;
+    }
+    .menuBarExpanded{
+        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
 }
