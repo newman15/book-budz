@@ -39,7 +39,7 @@ export default function SearchForm(){
                 </label><br/>
 
                 <label>
-                    <input className={styles.input} type="text" className={styles.textInput} id="searchValue" placeholder="Search..." required/>
+                    <input className={styles.textInput} type="text" id="searchValue" placeholder="Search..." required/>
                 </label>
 
                 <input type="submit" value="Search" />

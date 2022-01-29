@@ -31,7 +31,7 @@ export default function Home() {
                 <div className={styles.logo}>
                     <p>Developed By Aaron Newman</p>
                     <span>
-                        <a href="https://github.com/newman15?tab=repositories" target="_blank">
+                        <a href="https://github.com/newman15?tab=repositories" target="_blank" rel='noopener noreferrer'>
                             <Image src="/icons/github.svg" alt="Github Logo" width={50} height={50} />
                         </a>
                     </span>
