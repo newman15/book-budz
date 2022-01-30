@@ -10,4 +10,4 @@ This is a project application that allows user's to look up their favorite books
 - Axios, SWR
 
 # Live Website
-[book-budz](https://book-budz-6bdc9jt9s-newman15.vercel.app/)
+[book-budz](https://book-budz.vercel.app/)
