@@ -1,0 +1,1 @@
+// This will be the component used to display a board after selecting it from a search option
