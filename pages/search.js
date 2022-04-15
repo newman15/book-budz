@@ -8,8 +8,9 @@ export default function Search(){
 
     return (
         <div className={styles.gradient}>
+            <h1 className={styles.center}>Search Page</h1>
             {!session && (<h4 style={{color: "red", textAlign: 'center'}}>You must be signed in to save a book to your board!</h4>)}
-            <SearchForm />
+            <SearchForm callFrom={"search"} boardName={"N/A"}/>
         </div>
     )
 }
