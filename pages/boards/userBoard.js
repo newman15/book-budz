@@ -1,20 +1,18 @@
-// Page to display when a user is creating a new board
-
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import EditExistingBoard from "../../components/communityBoards/editExistingBoard";
-import styles from "../../styles/Board.module.css";
+import SearchUser from "../../components/search/searchUser";
+import styles from "../../styles/Home.module.css";
 
-export default function EditBoard() {
+export default function UserBoard() {
 
     // Get session status. User must be signed in to edit a public board.
-    const {status} = useSession();
+    const {data: session, status} = useSession();
 
     const router = useRouter(); // Create router instance
 
     if (status === "authenticated"){
         return (
-            <EditExistingBoard />
+            <SearchUser userId={session.userId} />
         )
     }
 
@@ -24,11 +22,11 @@ export default function EditBoard() {
             <></>
         )
     }
-    
+
     else{
         return (
-            <div className={styles.centerText}>
-                <h2 className={styles.errorMessage}>You Must Sign In To Edit A Board!</h2>
+            <div className={styles.center}>
+                <h2 className={styles.errorMessage}>You Must Sign In To View A Board!</h2>
                 <button type="button" onClick={() => router.push('/')} >Return Home</button>
             </div>
         )
