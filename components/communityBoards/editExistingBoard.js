@@ -60,7 +60,7 @@ export default function EditExistingBoard() {
 
     return (
         <div className={styles.centerText}>
-            <h2>Choose The Board You'd Like To Edit</h2>
+            <h2>Choose The Board You&apos;d Like To Edit</h2>
             <h4>{currSelection}</h4>
 
             <div className={styles.flexRow}>
