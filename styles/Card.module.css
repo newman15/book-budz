@@ -105,13 +105,9 @@
     text-align: left;
 }
 
-.imgNotLiked{
+.heartImage{
     cursor: pointer;
-}
-
-.imgLiked{
-    display: none;
-    cursor: pointer;
+    margin: 1rem;
 }
 
 .imgLikedSavedBook{
@@ -121,4 +117,8 @@
 .imgNotLikedSavedBook{
     display: none;
     cursor: pointer;
+}
+
+.cushion{
+    margin: 1rem;
 }

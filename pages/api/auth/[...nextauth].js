@@ -22,7 +22,7 @@ providers: [
 adapter: MongoDBAdapter(clientPromise),
 session: {
     strategy: "database",
-    maxAge: 1000 * 60 * 60 * 24, // 1 day long = (1000ms/1sec  *  60s/1min  *  60min/1hr  *  24hr/1day)
+    maxAge: 24 * 60 * 60, // 1 day long = (24hr/1day * 60min/1hr * 60sec/1min)
     updateAge: 24 * 60 * 60, // 24 hours
 },
 
