@@ -26,12 +26,31 @@ export default function Navbar() {
                         </Link>
                     </li>
 
-                    {session && (
-                        <li className={styles.floatLeft}>
-                            {/* Do not use '<Link></Link>' in order force a page reload when clicking */}
-                            <a href={`/userBoard/${encodeURI(session.userId)}`}>Book Board</a>
-                        </li>
-                    )}
+                    <div className={`${styles.dropDown} ${styles.floatLeft}`}>
+                        Boards
+                        <div className={styles.dropDownContent}>
+                            <li>
+                                <Link href="/boards/viewAllBoards">
+                                    <a>View Boards</a>
+                                </Link>
+                            </li>
+
+                            {session && (
+                                <li>
+                                    {/* Do not use '<Link></Link>' in order force a page reload when clicking */}
+                                    <a href={`/boards/userBoard`}>Book Board</a>
+                                </li>
+                            )}
+
+                            {session && (
+                                <li>
+                                    <Link href={`/boards/newBoard`}>Create Public Board</Link>
+                                </li>
+                            )}
+                        </div>
+                    </div>
+                    
+                   
 
                     {!session && (<li className={styles.floatRight}><span><button className={styles.button} onClick={() => signIn()}>Sign in</button></span></li>)}
 
@@ -69,6 +88,12 @@ export default function Navbar() {
                                 <a href={`/userBoard/${encodeURI(session.userId)}`}>Book Board</a>
                             </li>
                         )}
+
+                        {session && (
+                        <li className={styles.menuBarExpanded}>
+                            <Link href={`/boards/newBoard/${encodeURI(session.userId)}`}>Create Public Board</Link>
+                        </li>
+                    )}
 
                         {!session && (<li className={styles.menuBarExpanded}><span><button className={styles.button} onClick={() => signIn()}>Sign in</button></span></li>)}
 

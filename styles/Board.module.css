@@ -1,0 +1,82 @@
+.container{
+    text-align: center;
+}
+
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flexRow{
+    display: flex;
+    justify-content: center;
+}
+
+.spaceBetween{
+    margin: .5rem;
+}
+
+.centerText{
+    text-align: center;
+}
+
+/* Aligns the description <textarea> element */
+.textArea{
+    vertical-align: middle;
+    height: 60px;
+}
+
+/* Save Board button */
+.btnSaveBoard{
+    margin: auto auto;
+    width: fit-content;
+}
+
+.errorMessage{
+    color: red;
+    font-weight: bold;
+}
+
+.card{
+    border: 3px solid blue;
+    border-radius: 12px;
+    margin: 1rem;
+}
+
+.card:hover, .selectedCard:hover{
+    /* horizontal, vertical, blur, spread radius, color */
+    box-shadow: 5px 5px 5px 5px grey;
+    cursor: pointer;
+}
+
+.selectedCard{
+    box-shadow: 12px 12px 12px 12px red;
+}
+
+.bookViewContainer{
+    border: 3px solid black;
+    margin: 2rem;
+    justify-content: left;
+}
+
+.padding{
+    padding-top: .25rem;
+    padding-left: .25rem;
+}
+
+.margin{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+
+.gridContainer{
+    margin: 2rem;
+    border: 3px solid black;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+

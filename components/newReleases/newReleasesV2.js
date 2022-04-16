@@ -1,15 +1,18 @@
-import useSWR from 'swr';
-import styles from '../../styles/Card.module.css';
-import SearchCard from './searchCard';
+import useSWR from "swr";
+import NewReleasesCard from "./newReleasesCard";
+import Carousel from "../carousel";
 
-export default function SearchResults({searchType, searchValue, callFrom, boardName}) {
+export default function NewReleasesV2(){
+
+    // Array to store the JSX to be sent to the DOM
+    let newReleases = [];
 
     // Itinitialize fetcher for api calls to backend using 'useSWR'
     const fetcher = url => fetch(url).then(r => r.json());
 
     // Use the Next.js 'useSWR' hook to touch the backend API. https://swr.vercel.app/
     // revalidate... set to false to prevent duplicate calls to API when no event has happened.
-    const {data, error} = useSWR(`/api/search/${searchType}/${searchValue}`, fetcher, {
+    const {data, error} = useSWR(`/api/search/newestReleases`, fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false
@@ -28,22 +31,16 @@ export default function SearchResults({searchType, searchValue, callFrom, boardN
     // Return data if available
     // If image is returned display it, else display default image
     if(data){
-        let returnJSX = []; // Array to store the JSX to be sent to the DOM
-        
         for (let i = 0; i < data.length; i++){
-            returnJSX.push(
-                <SearchCard bookData={data[i]} callFrom={callFrom} boardName={boardName} key={i}/>
+            newReleases.push(
+               <NewReleasesCard newReleases={data[i]} key={i}/>
             )
         }
     }
 
-    return(
+    return (
         <div>
-            <h3>Search Type Is: <i>{searchType}</i>, Search Value Is: <i>{searchValue}</i></h3>
-
-            <div className={styles.cardContainer}>
-                {returnJSX}
-            </div>
+            <Carousel newReleases={newReleases}/>
         </div>
     )
 }

@@ -105,13 +105,9 @@
     text-align: left;
 }
 
-.imgNotLiked{
+.heartImage{
     cursor: pointer;
-}
-
-.imgLiked{
-    display: none;
-    cursor: pointer;
+    margin: 1rem;
 }
 
 .imgLikedSavedBook{
@@ -121,4 +117,27 @@
 .imgNotLikedSavedBook{
     display: none;
     cursor: pointer;
+}
+
+.cushion{
+    margin: 1rem;
+}
+
+.bookTitle{
+    cursor: context-menu;
+}
+
+.titleToolTip{
+    display: none;
+    white-space: normal;
+    position: absolute;
+    padding: 1rem;
+}
+
+.text .bookTitle:hover .titleToolTip{
+    display: block;
+    background-color: #555;
+    color: white;
+    border-radius: 6px;
+    opacity: 1;
 }

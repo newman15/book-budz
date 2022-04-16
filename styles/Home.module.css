@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.errorMessage{
+  color: red;
+  font-weight: bold;
+}
+
 .gradient{
   background-color: cadetblue;
   background-image: linear-gradient(white, lightBlue, grey);

@@ -2,7 +2,7 @@ import { useState } from "react";
 import SearchResults from "./searchResults";
 import styles from '../../styles/searchStyles/Form.module.css'
 
-export default function SearchForm(){
+export default function SearchForm({callFrom, boardName}){
 
     // State Hook that displays search results.
     const [results, showResults] = useState(null);
@@ -11,12 +11,14 @@ export default function SearchForm(){
     const getSearchResults = () => {
         let searchType = document.querySelector('input[name="searchType"]:checked').value;
         let searchValue = document.getElementById('searchValue').value;
-        showResults(<SearchResults searchType={searchType} searchValue={searchValue} />);
+        showResults(
+            <SearchResults searchType={searchType} searchValue={searchValue} 
+            callFrom={callFrom} boardName={boardName}/>
+        );
     }
 
     return (
         <div className={styles.center}>
-            <h1>Search Page</h1>
 
             <form onSubmit={(e) => {
                 e.preventDefault();
@@ -29,10 +31,6 @@ export default function SearchForm(){
                 <label>Title
                     <input className={styles.input} type="radio" id="searchTitle" name="searchType" value="searchTitle" required/>
                 </label>
-
-                {/* <label>Title and Author
-                    <input className={styles.input} type="radio" id="searchTitleAndAuthor" name="searchType" value="searchTitleAndAuthor" disabled/>
-                </label> */}
 
                 <label>ISBN
                     <input className={styles.input} type="radio" id="searchISBN" name="searchType" value="searchISBN" required/>

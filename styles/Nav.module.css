@@ -62,6 +62,26 @@
     display: none;
 }
 
+.dropDown{
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropDown:hover .dropDownContent{
+    display: block;
+}
+
+.dropDownContent{
+    display: none;
+    position: absolute;
+    color: black;
+    background-color: lightGrey;
+    text-align: left;
+    padding: .5rem;
+    z-index: 1;
+}
+
 @media screen and (max-width: 600px) {
     .menuBar{
         display: block;

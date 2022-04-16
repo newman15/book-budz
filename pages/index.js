@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import NewReleases from '../components/newReleases'
+import NewReleasesV2 from '../components/newReleases/newReleasesV2'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
                     Newest Book Releases
                 </p>
 
-                <NewReleases />
+                <NewReleasesV2 />
 
             </main>
 
