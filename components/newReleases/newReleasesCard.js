@@ -12,6 +12,13 @@ export default function NewReleasesCard({newReleases}) {
         borderRadius: '10px'
     }
 
+    const noWrap = {
+        overflow: "hidden", // Hide overflow text
+        textOverflow: "ellipsis", // Show '...' if text extends beyond the container
+        whiteSpace: "nowrap", // Do not wrap the text if it extends beyond container
+        margin: '1rem'
+    }
+
     return (
         <div style={card}>
             {newReleases.image !== 'None' ? 
@@ -32,8 +39,8 @@ export default function NewReleasesCard({newReleases}) {
                 />
             }
 
-            <p>Title: {newReleases.title}</p>
-            <p>Author: {newReleases.author}</p>
+            <div style={noWrap}>Title: {newReleases.title}</div>
+            <div style={noWrap}>Author: {newReleases.author}</div>
         </div>
     )
 }

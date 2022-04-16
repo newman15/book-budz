@@ -4,7 +4,7 @@ export default function ViewAllBoards () {
 
     return (
         <div>
-            View All Boards Page
+            <h1 style={{textAlign: 'center'}}>View All Boards</h1>
             <ShowAllBoards />
         </div>
     )

@@ -50,16 +50,6 @@ export default function Carousel({newReleases}) {
         <div>
             <div className={styles.container}>
                 <div style={carouselState}>
-                    {/* <div className={styles.carouselElement}>1</div>
-                    <div className={styles.carouselElement}>2</div>
-                    <div className={styles.carouselElement}>3</div>
-                    <div className={styles.carouselElement}>4</div>
-                    <div className={styles.carouselElement}>5</div>
-                    <div className={styles.carouselElement}>6</div>
-                    <div className={styles.carouselElement}>7</div>
-                    <div className={styles.carouselElement}>8</div>
-                    <div className={styles.carouselElement}>9</div>
-                    <div className={styles.carouselElement}>10</div> */}
                     {carouselData}
                 </div>
             </div>

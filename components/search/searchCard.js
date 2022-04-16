@@ -8,6 +8,12 @@ import notLiked from '../../public/not_liked.svg';
 
 export default function SearchCard({bookData, callFrom, boardName}){
 
+    const noWrap = {
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+    }
+
     // Use 'useSession' to control whether the user sees the like button
     const { data: session} = useSession();
 
@@ -100,13 +106,16 @@ export default function SearchCard({bookData, callFrom, boardName}){
 
             <div className={styles.text}>
 
-                <h2>{bookData.title}</h2>
+                <h2 style={noWrap} className={styles.bookTitle}>
+                    {bookData.title}
+                    <span className={styles.titleToolTip}>{bookData.title}</span>
+                </h2>
 
-                <p><b>Author:</b> {bookData.author}</p>
+                <p style={noWrap}><b>Author:</b> {bookData.author}</p>
                 
-                <p><b>Published:</b> {bookData.date}</p>
+                <p style={noWrap}><b>Published:</b> {bookData.date}</p>
 
-                <p><b>ISBN:</b> {bookData.isbn}</p>
+                <p style={noWrap}><b>ISBN:</b> {bookData.isbn}</p>
 
                 <button className={styles.modalBtn}
                     onClick={(e) => showModal(e)}>Show Description +/-
