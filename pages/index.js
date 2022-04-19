@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
     
     return (
-        <div className={styles.container}>
+        <div className="container">
             <Head>
                 <title>Book Budz</title>
                 <meta name="description" content="Book Budz, Book Club" />
@@ -15,27 +15,26 @@ export default function Home() {
             </Head>
 
             <main>
-                <h1 className={styles.title}>
-                    Book Budz
-                </h1>
+                <h1>Book Budz</h1>
 
-                <p className={styles.description}>
-                    Newest Book Releases
-                </p>
-
-                <NewReleasesV2 />
+                {/* <NewReleasesV2 /> */}
 
             </main>
 
-            <footer className={styles.footer}>
+            <footer>
 
-                <div className={styles.logo}>
-                    <p>Developed By Aaron Newman</p>
-                    <span>
-                        <a href="https://github.com/newman15?tab=repositories" target="_blank" rel='noopener noreferrer'>
+                <div className="container text-center">
+                    <hr />
+                    <div className="m-6">
+                        <a className='p-6'
+                            href="https://www.linkedin.com/in/aaron-newman-897141133/" target="_blank" rel='noopener noreferrer'>
+                            <Image src="/icons/LinkedIn.svg" alt="Github Logo" width={50} height={50} />
+                        </a>
+                        <a  className='p-6'
+                            href="https://github.com/newman15?tab=repositories" target="_blank" rel='noopener noreferrer'>
                             <Image src="/icons/github.svg" alt="Github Logo" width={50} height={50} />
                         </a>
-                    </span>
+                    </div>
                 </div>
             
             </footer>
