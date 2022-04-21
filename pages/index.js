@@ -15,7 +15,7 @@ export default function Home() {
             </Head>
 
             <main>
-                <h1>Book Budz</h1>
+                <h1 className="text-center">Book Budz</h1>
 
                 {/* <NewReleasesV2 /> */}
 

@@ -18,29 +18,29 @@ export default function SearchForm({callFrom, boardName}){
     }
 
     return (
-        <div className={styles.center}>
+        <div className="container">
 
-            <form onSubmit={(e) => {
+            <form className="m-6 text-center" onSubmit={(e) => {
                 e.preventDefault();
                 getSearchResults();
             }}>
-                <label>Author
-                    <input className={styles.input} type="radio" id="searchAuthor" name="searchType" value="searchAuthor" required/>
+                <label className="p-2 text-lg">Author
+                    <input className="cursor-pointer w-6 h-6 ml-1 align-middle" type="radio" id="searchAuthor" name="searchType" value="searchAuthor" required/>
                 </label>
 
-                <label>Title
-                    <input className={styles.input} type="radio" id="searchTitle" name="searchType" value="searchTitle" required/>
+                <label className="p-2 text-lg">Title
+                    <input className="cursor-pointer w-6 h-6 ml-1 align-middle" type="radio" id="searchTitle" name="searchType" value="searchTitle" required/>
                 </label>
 
-                <label>ISBN
-                    <input className={styles.input} type="radio" id="searchISBN" name="searchType" value="searchISBN" required/>
+                <label className="p-2 text-lg">ISBN
+                    <input className="cursor-pointer w-6 h-6 ml-1 align-middle" type="radio" id="searchISBN" name="searchType" value="searchISBN" required/>
                 </label><br/>
 
                 <label>
-                    <input className={styles.textInput} type="text" id="searchValue" placeholder="Search..." required/>
+                    <input className="p-1 border-2 border-black rounded-md outline-black" type="text" id="searchValue" placeholder="Search..." required/>
                 </label>
 
-                <input type="submit" value="Search" />
+                <input className="p-1 m-2 border-2 border-black bg-blue-500 rounded-md text-white" type="submit" value="Search" />
             </form>
 
             {results}
