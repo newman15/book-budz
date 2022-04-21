@@ -23,9 +23,19 @@ export default function SearchCard({bookData, callFrom, boardName}){
     // Hook to control the state of the likedImage icon
     const [saveBook, setSaveBook] = useState(false);
 
+    // // Stores the JSX Modal to be displayed when the modal btn is clicked
+    // const modalJSX = (
+    //     <div className={styles.modal} >
+    //         <div className={styles.content}>
+    //             <span className={styles.close} onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
+    //             <p className={styles.descriptionContent}>{bookData.description}</p>
+    //         </div>
+    //     </div>
+    // );
+
     // Stores the JSX Modal to be displayed when the modal btn is clicked
     const modalJSX = (
-        <div className={styles.modal} >
+        <div className="fixed z-10 left-0 top-0">
             <div className={styles.content}>
                 <span className={styles.close} onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
                 <p className={styles.descriptionContent}>{bookData.description}</p>

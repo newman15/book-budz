@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SearchResults from "./searchResults";
-import styles from '../../styles/searchStyles/Form.module.css'
 
 export default function SearchForm({callFrom, boardName}){
 
@@ -20,7 +19,7 @@ export default function SearchForm({callFrom, boardName}){
     return (
         <div className="container">
 
-            <form className="m-6 text-center" onSubmit={(e) => {
+            <form className="text-center m-6" onSubmit={(e) => {
                 e.preventDefault();
                 getSearchResults();
             }}>
@@ -40,7 +39,7 @@ export default function SearchForm({callFrom, boardName}){
                     <input className="p-1 border-2 border-black rounded-md outline-black" type="text" id="searchValue" placeholder="Search..." required/>
                 </label>
 
-                <input className="p-1 m-2 border-2 border-black bg-blue-500 rounded-md text-white" type="submit" value="Search" />
+                <input className="p-1 m-2 border-2 border-black bg-blue-500 rounded-md text-white cursor-pointer" type="submit" value="Search" />
             </form>
 
             {results}
