@@ -8,10 +8,13 @@ import notLiked from '../../public/not_liked.svg';
 
 export default function SearchCard({bookData, callFrom, boardName}){
 
+    // Reusable tyle object variable for the <p> tag
     const noWrap = {
         overflow: "hidden",
         textOverflow: "ellipsis",
-        whiteSpace: "nowrap"
+        whiteSpace: "nowrap",
+        fontSize: "1rem",
+        padding: "1rem"
     }
 
     // Use 'useSession' to control whether the user sees the like button
@@ -35,10 +38,10 @@ export default function SearchCard({bookData, callFrom, boardName}){
 
     // Stores the JSX Modal to be displayed when the modal btn is clicked
     const modalJSX = (
-        <div className="fixed z-10 left-0 top-0">
-            <div className={styles.content}>
-                <span className={styles.close} onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
-                <p className={styles.descriptionContent}>{bookData.description}</p>
+        <div className="fixed z-10 left-0 top-0 w-full h-full overflow-auto bg-slate-400/95">
+            <div className="bg-white border-4 border-black rounded w-5/6 mx-auto mt-4">
+                <span className="float-right cursor-pointer text-3xl font-bold" onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
+                <p className="text-left">{bookData.description}</p>
             </div>
         </div>
     );
@@ -95,7 +98,7 @@ export default function SearchCard({bookData, callFrom, boardName}){
     }
 
     return (
-        <div className={styles.card}>
+        <div className="w-72 xs:w-80 border-8 border-black rounded-xl mb-8 text-center hover:shadow-[0_8px_16px_8px_rgba(0,0,0,1)]">
             {bookData.image !== 'None' ? 
                 <Image 
                     src={bookData.image} 
@@ -114,12 +117,17 @@ export default function SearchCard({bookData, callFrom, boardName}){
                 />
             }
 
-            <div className={styles.text}>
+            <div className="m-4">
 
-                <h2 style={noWrap} className={styles.bookTitle}>
-                    {bookData.title}
-                    <span className={styles.titleToolTip}>{bookData.title}</span>
-                </h2>
+                <div className="group relative">
+                    <h2 className="overflow-hidden overflow-ellipsis whitespace-nowrap cursor-help">
+                        {bookData.title}
+                    </h2>
+                    <span className="hidden absolute -top-12 left-0 right-0 m-auto 
+                        border-2 border-black bg-slate-400 group-hover:block">
+                        {bookData.title}
+                    </span>
+                </div>
 
                 <p style={noWrap}><b>Author:</b> {bookData.author}</p>
                 

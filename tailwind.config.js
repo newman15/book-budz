@@ -3,10 +3,17 @@ module.exports = {
       "./pages/**/*.{js,ts,jsx,tsx}",
       "./components/**/*.{js,ts,jsx,tsx}",
     ],
+
     theme: {
         fontFamily: {
             
+        },
+
+        screens:{
+            'xs': '360px',
+            // @media (min-width: 380px){...}
         }
     },
+
     plugins: [],
   }
