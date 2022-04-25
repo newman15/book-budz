@@ -1,7 +1,6 @@
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import Image from 'next/image';
-import styles from '../../styles/Card.module.css';
 import noImage from '../../public/unavailable_img.jpeg';
 import liked from '../../public/liked.svg';
 import notLiked from '../../public/not_liked.svg';
@@ -26,22 +25,15 @@ export default function SearchCard({bookData, callFrom, boardName}){
     // Hook to control the state of the likedImage icon
     const [saveBook, setSaveBook] = useState(false);
 
-    // // Stores the JSX Modal to be displayed when the modal btn is clicked
-    // const modalJSX = (
-    //     <div className={styles.modal} >
-    //         <div className={styles.content}>
-    //             <span className={styles.close} onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
-    //             <p className={styles.descriptionContent}>{bookData.description}</p>
-    //         </div>
-    //     </div>
-    // );
-
     // Stores the JSX Modal to be displayed when the modal btn is clicked
     const modalJSX = (
         <div className="fixed z-10 left-0 top-0 w-full h-full overflow-auto bg-slate-400/95">
-            <div className="bg-white border-4 border-black rounded w-5/6 mx-auto mt-4">
+            <div className="bg-white border-4 border-black rounded mx-auto mt-8 w-4/6">
+                
+                {/* close button */}
                 <span className="float-right cursor-pointer text-3xl font-bold" onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
-                <p className="text-left">{bookData.description}</p>
+                
+                <p className="text-left m-4">{bookData.description}</p>
             </div>
         </div>
     );
@@ -98,7 +90,7 @@ export default function SearchCard({bookData, callFrom, boardName}){
     }
 
     return (
-        <div className="w-72 xs:w-80 border-8 border-black rounded-xl mb-8 text-center hover:shadow-[0_8px_16px_8px_rgba(0,0,0,1)]">
+        <div className="w-72 xs:w-80 border-8 border-black rounded-xl m-8 text-center hover:shadow-[0_8px_16px_8px_rgba(0,0,0,1)]">
             {bookData.image !== 'None' ? 
                 <Image 
                     src={bookData.image} 
@@ -135,13 +127,13 @@ export default function SearchCard({bookData, callFrom, boardName}){
 
                 <p style={noWrap}><b>ISBN:</b> {bookData.isbn}</p>
 
-                <button className={styles.modalBtn}
+                <button className="cursor-pointer border-2 border-black rounded m-4 p-1 hover:bg-black hover:text-white"
                     onClick={(e) => showModal(e)}>Show Description +/-
                 </button>
                 {modal}
 
                 {session && (
-                    <div className={styles.heartImage} onClick={(e) => saveBookHandler(e)}>
+                    <div className="cursor-pointer m-4" onClick={(e) => saveBookHandler(e)}>
                         {saveBook ? 
                             <Image 
                                 src={liked} 

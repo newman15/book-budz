@@ -1,5 +1,4 @@
 import useSWR from 'swr';
-import styles from '../../styles/Card.module.css';
 import SearchCard from './searchCard';
 
 export default function SearchResults({searchType, searchValue, callFrom, boardName}) {
@@ -39,9 +38,9 @@ export default function SearchResults({searchType, searchValue, callFrom, boardN
 
     return(
         <div>
-            <h3 className="text-center">Showing Results for: <i className="font-bold">{searchValue}</i></h3>
+            {/* <h3 className="text-center mb-4">Showing Results for: <i className="font-bold">{searchValue}</i></h3> */}
 
-            <div className={styles.cardContainer}>
+            <div className="flex flex-row flex-wrap justify-center">
                 {returnJSX}
             </div>
         </div>

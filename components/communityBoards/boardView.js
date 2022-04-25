@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useState } from 'react';
 import noImage from '../../public/unavailable_img.jpeg';
-import styles from '../../styles/Card.module.css';
 
 export default function BoardView ({board}){
 
@@ -13,10 +12,13 @@ export default function BoardView ({board}){
     
         // Stores the JSX Modal to be displayed when the modal btn is clicked
         const modalJSX = (
-            <div className={styles.modal} >
-                <div className={styles.content}>
-                    <span className={styles.close} onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
-                    <p className={styles.descriptionContent}>{board.boardDescription}</p>
+            <div className="fixed z-10 left-0 top-0 w-full h-full overflow-auto bg-slate-400/95" >
+                <div className="bg-white border-4 border-black rounded mx-auto mt-8 w-4/6">
+
+                    {/* close button */}
+                    <span className="float-right cursor-pointer text-3xl font-bold" onClick={(e) => {e.preventDefault(); setModal(!modal)}}>&times;</span>
+                    
+                    <p className="text-left m-4">{board.boardDescription}</p>
                 </div>
             </div>
         );
@@ -34,7 +36,7 @@ export default function BoardView ({board}){
         }
 
     return (
-        <div className={styles.card}>
+        <div className="w-72 xs:w-80 border-8 border-black rounded-xl m-8 text-center hover:shadow-[0_8px_16px_8px_rgba(0,0,0,1)]">
             {board.boardImage !== 'None' ? 
                 <Image 
                     src={board.boardImage} 
@@ -53,19 +55,19 @@ export default function BoardView ({board}){
                 />
             }
 
-            <p>Board Name: {board.boardName}</p>
+            <p className="p-4"><b>Board Name:</b> {board.boardName}</p>
 
-            <p>Board Genre: {board.boardGenre}</p>
+            <p className="p-4"><b>Board Genre:</b> {board.boardGenre}</p>
 
-            <div className={styles.cushion}>
-                <button className={styles.modalBtn}
+            <div className="m-4">
+                <button className="cursor-pointer border-2 border-black rounded m-4 p-1 hover:bg-black hover:text-white"
                     onClick={(e) => showModal(e)}>Board Description
                 </button>
                 {modal}
             </div>
 
-            <div className={styles.cushion}>
-                <button className={styles.modalBtn}
+            <div className="m-4">
+                <button className="cursor-pointer border-2 border-black rounded m-4 p-1 hover:bg-black hover:text-white"
                     onClick={(e) => visitBoard(e)}>Visit Board
                 </button>
             </div>

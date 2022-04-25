@@ -17,7 +17,7 @@ export default function SearchForm({callFrom, boardName}){
     }
 
     return (
-        <div className="container">
+        <div>
 
             <form className="text-center m-6" onSubmit={(e) => {
                 e.preventDefault();

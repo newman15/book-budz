@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import BoardView from "./boardView";
-import styles from '../../styles/Card.module.css';
 
 export default function ShowAllBoards() {
 
@@ -34,7 +33,7 @@ export default function ShowAllBoards() {
     }
 
     return (
-        <div className={styles.cardContainer}>
+        <div className="flex flex-row flex-wrap justify-center">
             {allBoards}
         </div>
     )
