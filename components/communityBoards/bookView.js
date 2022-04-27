@@ -14,7 +14,7 @@ export default function BookView({bookData}) {
     // Populates starRating array with star images.
     for (let i = 0; i < 5; i++){
         starRating.push(
-            <Image 
+            <Image key={i}
                 src={fullStar} 
                 alt={"Star Image"}
                 width={30}

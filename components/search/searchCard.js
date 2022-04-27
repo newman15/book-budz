@@ -23,7 +23,7 @@ export default function SearchCard({bookData, callFrom, boardName}){
     const [modal, setModal] = useState();
 
     // Hook to control the state of the likedImage icon
-    const [saveBook, setSaveBook] = useState(false);
+    const [saveBook, setSaveBook] = useState(callFrom === "userBoard" ? true : false);
 
     // Stores the JSX Modal to be displayed when the modal btn is clicked
     const modalJSX = (
@@ -52,6 +52,7 @@ export default function SearchCard({bookData, callFrom, boardName}){
         // If savebook is currently false, then the user's "Save" btn click triggered this.
         // Else, the user has "Unsaved" this book. Set the status accordingly.
         const saveStatus = !saveBook ? "saveBook" : "deleteBook";
+        console.log("SaveStatus = " + saveStatus);
         setSaveBook(!saveBook); // Call state hook to change liked image
         dbHandler(saveStatus); // Pass status to the dbHandler
     }
@@ -59,6 +60,7 @@ export default function SearchCard({bookData, callFrom, boardName}){
     // Function that calls the Backend API route and dynamically
     // sets the correct save/delete route.
     const dbHandler = (saveStatus) => {
+        console.log("DB Handler SaveStatus = " + saveStatus);
         bookData.userId = session.userId; // Add userId to bookData for backend purposes
 
         let saveType = ""; // String to store the saveType when sending to the DB
@@ -67,6 +69,9 @@ export default function SearchCard({bookData, callFrom, boardName}){
         // This functionlity makes the SearchForm component reusable.
         switch (callFrom){
             case "search":
+                saveType = `/api/db/${saveStatus}`;
+                break;
+            case "userBoard":
                 saveType = `/api/db/${saveStatus}`;
                 break;
             case "editBoard":
@@ -98,6 +103,7 @@ export default function SearchCard({bookData, callFrom, boardName}){
                     width={350}
                     height={350}
                     layout="responsive"
+                    priority
                 />
                 : 
                 <Image 
@@ -106,6 +112,7 @@ export default function SearchCard({bookData, callFrom, boardName}){
                     width={350}
                     height={350}
                     layout="responsive"
+                    priority
                 />
             }
 
