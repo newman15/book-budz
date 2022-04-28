@@ -1,8 +1,4 @@
 import useSWR from "swr";
-import Image from 'next/dist/client/image';
-import styles from '../../styles/Card.module.css'
-import noImage from '../../public/unavailable_img.jpeg';
-import liked from '../../public/liked.svg';
 import SearchCard from "./searchCard";
 
 export default function SearchUser({userId}) {
@@ -43,7 +39,7 @@ export default function SearchUser({userId}) {
 
     return(
         <div>
-            <div className={styles.cardContainer}>
+            <div className="flex flex-row flex-wrap justify-center">
                 {returnJSX}
             </div>
         </div>

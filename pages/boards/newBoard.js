@@ -3,7 +3,6 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import CreateBoard from "../../components/communityBoards/createBoard";
-import styles from "../../styles/Board.module.css";
 
 export default function NewBoard() {
 
@@ -15,9 +14,9 @@ export default function NewBoard() {
     return (
         <div>
             {!session ? (
-                <div className={styles.centerText}>
-                    <h2 className={styles.errorMessage}>You Must Sign In To Create A Board!</h2>
-                    <button type="button" onClick={() => router.push('/')} >Return Home</button>
+                <div className="text-center">
+                    <h2 className="text-red-500 font-bold m-6">You Must Sign In To Create A Board!</h2>
+                    <button className="p-1 m-2 border-2 border-black bg-blue-500 rounded-md text-white cursor-pointer" type="button" onClick={() => router.push('/')} >Return Home</button>
                 </div>
             ) : (<CreateBoard />)}
         </div>
