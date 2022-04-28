@@ -6,23 +6,23 @@ import NewReleasesV2 from '../components/newReleases/newReleasesV2'
 export default function Home() {
     
     return (
-        <div className="container">
+        <div>
             <Head>
                 <title>Book Budz</title>
                 <meta name="description" content="Book Budz, Book Club" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main>
-                <h1 className="text-center">Book Budz</h1>
+            <main className="mx-auto">
+                <h1 className="text-center m-6">Book Budz</h1>
 
-                {/* <NewReleasesV2 /> */}
+                <NewReleasesV2 />
 
             </main>
 
             <footer>
 
-                <div className="container text-center">
+                <div className="text-center">
                     <hr />
                     <div className="m-6">
                         <a className='p-6'

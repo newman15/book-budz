@@ -39,7 +39,7 @@ export default function NewReleasesV2(){
     }
 
     return (
-        <div>
+        <div className="hidden sm:block">
             <Carousel newReleases={newReleases}/>
         </div>
     )

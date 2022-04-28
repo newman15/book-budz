@@ -28,6 +28,7 @@ export default function NewReleasesCard({newReleases}) {
                     width={350}
                     height={350}
                     layout="responsive"
+                    priority
                 />
                 : 
                 <Image 
@@ -36,6 +37,7 @@ export default function NewReleasesCard({newReleases}) {
                     width={350}
                     height={350}
                     layout="responsive"
+                    priority
                 />
             }
 
