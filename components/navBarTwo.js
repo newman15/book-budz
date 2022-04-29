@@ -57,7 +57,7 @@ export default function Navbar() {
                             {session && (
                                 <li>
                                     {/* Do not use '<Link></Link>' in order force a page reload when clicking */}
-                                    <a href="/boards/userBoard">Book Board</a>
+                                    <a href={`/boards/userBoard`}>Book Board</a>
                                 </li>
                             )}
 
