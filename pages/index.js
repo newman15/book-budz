@@ -14,7 +14,8 @@ export default function Home() {
             </Head>
 
             <main className="mx-auto">
-                <h1 className="text-center m-6">Book Budz</h1>
+                <h1 className="text-center m-6 text-4xl">Book Budz</h1>
+                <h1 className="text-center m-6" >Newest Releases</h1>
 
                 <NewReleasesV2 />
 

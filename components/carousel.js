@@ -54,7 +54,7 @@ export default function Carousel({newReleases}) {
                 </div>
             </div>
 
-            <div className="text-center">
+            <div className="text-center mb-6">
                 {/* <p>Carousel View = {counter + 1}</p> */}
                 <button className="p-1 m-2 border-2 border-black bg-blue-500 rounded-md text-white cursor-pointer" onClick={(e) => backClick(e)}>Back</button>
                 <button className="p-1 m-2 border-2 border-black bg-blue-500 rounded-md text-white cursor-pointer" onClick={(e) => nextClick(e)}>Next</button>
