@@ -1,109 +1,79 @@
 import Link from "next/link"
-import styles from "../styles/Nav.module.css"
 import Image from 'next/image'
+import navMenu from '../public/icons/NavMenu.svg'
 import { useSession, signIn, signOut } from "next-auth/react"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
     
     const { data: session} = useSession();
-    const {navState, setNavState} = useState(false);
 
-    useEffect(() => {
-        if (navState === false){
-            document.getElementById("mobileNavElements").style.display = "none";
-        }
-        else {
-            document.getElementById("mobileNavElements").style.display = "block";
-        }
-    })
+    const [navbarOpen, setNavbarOpen] = useState(false);
 
-    let desktopNav = (
-        <div className={styles.topNav}>
-            
-            <nav>
-                <ul className={styles.inlineListItem} id="menuItems">
+    const closeMenu = (e) => {
+        e.preventDefault();
+        setNavbarOpen(false);
+    }
+
+    const navController = (e) => {
+        e.preventDefault();
+        setNavbarOpen(!navbarOpen);
+    }
+
+    return (
+        <div className="bg-[#333] p-4 sticky top-0 z-10">
+
+            <button className="md:hidden" onClick={(e) => {navController(e)}}>
+                <Image src={navMenu} alt="Nav Icon" width={50} height={50} />
+            </button>
+
+            {/* <div className="mb-10"> */}
+            <div className={
+                `mb-10 md:block ${navbarOpen ? "block" : "hidden"}`
+            }>
+                <ul className="inline text-3xl text-white">
                 
-                    <li className={styles.floatLeft}>
+                    <li className="md:float-left ml-6">
                         <Link href="/">
                             <a>Home</a>
                         </Link>
                     </li>
 
-                    <li className={styles.floatLeft}>
+                    <li className="md:float-left ml-6">
                         <Link href="/search">
                             <a>Search</a>
                         </Link>
                     </li>
 
-                    {session && (
-                        <li className={styles.floatLeft}>
-                            {/* Do not use '<Link></Link>' in order force a page reload when clicking */}
-                            <a href={`/userBoard/${encodeURI(session.userId)}`}>Book Board</a>
-                        </li>
-                    )}
-
-                    {!session && (<li className={styles.floatRight}><span><button className={styles.button} onClick={() => signIn()}>Sign in</button></span></li>)}
-
-                    {session && (<li className={styles.floatRight}><span><button className={styles.button} onClick={() => signOut()}>Sign out</button></span></li>)}
-
-                </ul>
-                
-            </nav>
-            
-        </div>
-    )
-
-    let mobileNav = (
-        <div className={styles.mobileTopNav}>
-            
-            <nav>
-                <ul className={styles.inlineListItem} id="menuItems">
-
-                    <li>
-                        <button onClick={() => setNavState(!navState)}><Image src="/icons/menuBars.svg" alt="Github Logo" width={40} height={18} /></button>
-                    </li>
-
-                    <div id="mobileNavElements" style={{display: 'none'}}>
-                        <li className={styles.menuBarExpanded}>
-                            <Link href="/">
-                                <a>Home</a>
-                            </Link>
-                        </li>
-
-                        <li className={styles.menuBarExpanded}>
-                            <Link href="/search">
-                                <a>Search</a>
-                            </Link>
-                        </li>
-
-                        {session && (
-                            <li className={styles.menuBarExpanded}>
-                                {/* Do not use '<Link></Link>' in order force a page reload when clicking */}
-                                <a href={`/userBoard/${encodeURI(session.userId)}`}>Book Board</a>
+                    <div className="group cursor-pointer md:float-left ml-6">
+                        Boards
+                        <div className="hidden absolute p-6 bg-[#333] group-hover:block">
+                            <li>
+                                <Link href="/boards/viewAllBoards">
+                                    <a>View Boards</a>
+                                </Link>
                             </li>
-                        )}
 
-                        {!session && (<li className={styles.menuBarExpanded}><span><button className={styles.button} onClick={() => signIn()}>Sign in</button></span></li>)}
+                            {session && (
+                                <li>
+                                    {/* Do not use '<Link></Link>' in order force a page reload when clicking */}
+                                    <a href={`/boards/userBoard`}>Book Board</a>
+                                </li>
+                            )}
 
-                        {session && (<li className={styles.menuBarExpanded}><span><button className={styles.button} onClick={() => signOut()}>Sign out</button></span></li>)}
+                            {session && (
+                                <li>
+                                    <Link href="/boards/newBoard">Create Public Board</Link>
+                                </li>
+                            )}
+                        </div>
                     </div>
-                
                     
+                    {!session && (<li className="md:inline md:float-right md:mr-6 ml-6"><span><button className="button" onClick={() => signIn()}>Sign in</button></span></li>)}
+
+                    {session && (<li className="md:inline md:float-right md:mr-6 ml-6"><span><button className="button" onClick={() => signOut()}>Sign out</button></span></li>)}
 
                 </ul>
-                
-            </nav>
-        
-        </div>
-    )
-
-    return (
-        <div>
-
-            <div>
-                {desktopNav}
-                {mobileNav}
             </div>
             
         </div>

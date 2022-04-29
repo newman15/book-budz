@@ -39,7 +39,7 @@ export default function NewReleasesV2(){
     }
 
     return (
-        <div>
+        <div className="hidden carouselWidth:block">
             <Carousel newReleases={newReleases}/>
         </div>
     )

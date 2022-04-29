@@ -43,8 +43,10 @@ export default function ShowBooksInBoard({boardName}) {
     
     return (
         <div>
-            <h1 style={{textAlign: 'center'}}>Showing Board Results For: {boardName}</h1>
+            <h1 className="text-center m-6">Showing Board Results For: {boardName}</h1>
+
             {booksInBoard}
+
         </div>
     )
 };

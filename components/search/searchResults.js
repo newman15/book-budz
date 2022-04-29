@@ -1,5 +1,4 @@
 import useSWR from 'swr';
-import styles from '../../styles/Card.module.css';
 import SearchCard from './searchCard';
 
 export default function SearchResults({searchType, searchValue, callFrom, boardName}) {
@@ -17,7 +16,7 @@ export default function SearchResults({searchType, searchValue, callFrom, boardN
 
     // Display loading message while waiting for data
     if(!data) {
-        return <div>loading...</div>
+        return <div className="text-center">loading...</div>
     }
 
     // If error display an error message
@@ -39,9 +38,9 @@ export default function SearchResults({searchType, searchValue, callFrom, boardN
 
     return(
         <div>
-            <h3>Search Type Is: <i>{searchType}</i>, Search Value Is: <i>{searchValue}</i></h3>
+            {/* <h3 className="text-center mb-4">Showing Results for: <i className="font-bold">{searchValue}</i></h3> */}
 
-            <div className={styles.cardContainer}>
+            <div className="flex flex-row flex-wrap justify-center">
                 {returnJSX}
             </div>
         </div>

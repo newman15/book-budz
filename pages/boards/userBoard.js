@@ -1,7 +1,6 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import SearchUser from "../../components/search/searchUser";
-import styles from "../../styles/Home.module.css";
 
 export default function UserBoard() {
 
@@ -25,9 +24,9 @@ export default function UserBoard() {
 
     else{
         return (
-            <div className={styles.center}>
-                <h2 className={styles.errorMessage}>You Must Sign In To View A Board!</h2>
-                <button type="button" onClick={() => router.push('/')} >Return Home</button>
+            <div className="text-center">
+                <h2 className="text-red-500 font-bold m-6">You Must Sign In To View A Board!</h2>
+                <button className="p-1 m-2 border-2 border-black bg-blue-500 rounded-md text-white cursor-pointer" type="button" onClick={() => router.push('/')} >Return Home</button>
             </div>
         )
     }
