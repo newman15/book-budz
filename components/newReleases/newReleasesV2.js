@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import NewReleasesCard from "./newReleasesCard";
 import Carousel from "../carousel";
+import CarouselSmall from "../carouselSmall";
 
 export default function NewReleasesV2(){
 
@@ -39,8 +40,14 @@ export default function NewReleasesV2(){
     }
 
     return (
-        <div className="hidden carouselWidth:block">
-            <Carousel newReleases={newReleases}/>
+        <div>
+            <div className="hidden carouselWidth:block" >
+                <Carousel newReleases={newReleases}/>
+            </div>
+
+            <div className="carouselWidth:hidden">
+                <CarouselSmall newReleases={newReleases} />
+            </div>
         </div>
     )
 }

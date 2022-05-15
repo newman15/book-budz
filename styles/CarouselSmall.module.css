@@ -4,64 +4,64 @@
     margin: auto auto 7rem;
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 10px;
     perspective: 1000px;
 }
 
 .carouselElement{
     position: absolute; /* Keeps elements side by side and wrapped */
     width: 300px;
-    height: 400px;
+    height: 10px;
     font-weight: bold;
     text-align: center;
 }
 
 /*
- * Must have rotateY() before translateZ() in this initial setup.
+ * Must have rotateX() before translateZ() in this initial setup.
  * In the carousel component these will be switched on purpose according to order of operation.
  * 
- * rotateY() is calculated based on:  360 / AmountOfElements.  IE: 360 / 10 = 36degrees per element.
+ * rotateX() is calculated based on:  360 / AmountOfElements.  IE: 360 / 10 = 36degrees per element.
  * translateZ() is calculated based on:   translateZ = (totalWidthOfElement / 2) / tan(degreePerElement / 2)
  *      --> IE: translateZ = (300px / 2) / tan(36deg / 2)    ===   461px
 */
 .carouselElement:nth-child(1){
     /* background-color: rgb(0, 255, 255);  */
-    transform: rotateY(0deg) translateZ(461px);
+    transform: rotateX(0deg) translateZ(461px);
 
 }
 .carouselElement:nth-child(2){
     /* background-color: rgb(0, 255, 76);  */
-    transform: rotateY(36deg) translateZ(461px);
+    transform: rotateX(36deg) translateZ(461px);
 }
 .carouselElement:nth-child(3){
     /* background-color: rgb(0, 132, 255);  */
-    transform: rotateY(72deg) translateZ(461px);
+    transform: rotateX(72deg) translateZ(461px);
 }
 .carouselElement:nth-child(4){
     /* background-color: rgb(255, 208, 0);  */
-    transform: rotateY(108deg) translateZ(461px);
+    transform: rotateX(108deg) translateZ(461px);
 }
 .carouselElement:nth-child(5){
     /* background-color: rgb(144, 0, 255);  */
-    transform: rotateY(144deg) translateZ(461px);
+    transform: rotateX(144deg) translateZ(461px);
 }
 .carouselElement:nth-child(6){
     /* background-color: rgb(217, 0, 255);  */
-    transform: rotateY(180deg) translateZ(461px);
+    transform: rotateX(180deg) translateZ(461px);
 }
 .carouselElement:nth-child(7){
     /* background-color: rgb(0, 255, 55);  */
-    transform: rotateY(216deg) translateZ(461px);
+    transform: rotateX(216deg) translateZ(461px);
 }
 .carouselElement:nth-child(8){
     /* background-color: rgb(255, 0, 17);  */
-    transform: rotateY(252deg) translateZ(461px);
+    transform: rotateX(252deg) translateZ(461px);
 }
 .carouselElement:nth-child(9){
     /* background-color: rgb(210, 243, 23);  */
-    transform: rotateY(288deg) translateZ(461px);
+    transform: rotateX(288deg) translateZ(461px);
 }
 .carouselElement:nth-child(10){
     /* background-color: rgb(243, 177, 249);  */
-    transform: rotateY(324deg) translateZ(461px);
+    transform: rotateX(324deg) translateZ(461px);
 }
