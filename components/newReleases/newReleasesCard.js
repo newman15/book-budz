@@ -16,7 +16,9 @@ export default function NewReleasesCard({newReleases}) {
         overflow: "hidden", // Hide overflow text
         textOverflow: "ellipsis", // Show '...' if text extends beyond the container
         whiteSpace: "nowrap", // Do not wrap the text if it extends beyond container
-        margin: '1rem'
+        margin: '1rem',
+        textAlign: 'center',
+        fontWeight: 'bold'
     }
 
     return (
