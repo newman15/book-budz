@@ -3,21 +3,22 @@ import { useState } from 'react';
 export default function Carousel({newReleases}) {
 
     const numOfElements = newReleases.length;
-    console.log(numOfElements);
     const [counter, setCounter] = useState(0);
 
     const nextClick = (e) => {
         e.preventDefault();
+        let tempCount = counter + 1;
         setCounter(counter + 1);
-        console.log("counter = " + Math.abs(counter % numOfElements));
-        setCarouselState(carouselData[Math.abs(counter % numOfElements)]);
+        console.log("counter = " + tempCount % numOfElements);
+        setCarouselState(carouselData[tempCount % numOfElements]);
     }
 
     const backClick = (e) => {
         e.preventDefault();
+        let tempCount = counter - 1;
         setCounter(counter - 1);
-        console.log("counter = " + Math.abs(counter % numOfElements));
-        setCarouselState(carouselData[Math.abs(counter % numOfElements)]);
+        console.log("counter = " + tempCount % numOfElements);
+        setCarouselState(carouselData[tempCount % numOfElements]);
     }
 
     const carouselData = [];
