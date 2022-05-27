@@ -9,16 +9,18 @@ export default function Carousel({newReleases}) {
         e.preventDefault();
         let tempCount = counter + 1;
         setCounter(counter + 1);
-        console.log("counter = " + tempCount % numOfElements);
-        setCarouselState(carouselData[tempCount % numOfElements]);
+        let nextCard = Math.abs((tempCount + numOfElements) % numOfElements);
+        console.log("counter = " + nextCard);
+        setCarouselState(carouselData[nextCard]);
     }
 
     const backClick = (e) => {
         e.preventDefault();
         let tempCount = counter - 1;
         setCounter(counter - 1);
-        console.log("counter = " + tempCount % numOfElements);
-        setCarouselState(carouselData[tempCount % numOfElements]);
+        let prevCard = Math.abs((tempCount + numOfElements) % numOfElements);
+        console.log("counter = " + prevCard);
+        setCarouselState(carouselData[prevCard]);
     }
 
     const carouselData = [];
@@ -33,7 +35,7 @@ export default function Carousel({newReleases}) {
     
     return (
         <div>
-            <div>
+            <div className='m-6'>
                 {carouselState}
             </div>
 

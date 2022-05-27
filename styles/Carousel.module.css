@@ -6,7 +6,7 @@
     width: 300px;
     height: 300px;
     perspective: 1000px;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
 }
 
 .carouselElement{
